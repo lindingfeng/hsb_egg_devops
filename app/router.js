@@ -6,4 +6,5 @@
 module.exports = app => {
   const { router, controller } = app;
   router.get('/api/getUserList', controller.account.getUserList);
+  router.get('/api/setUserInfo', controller.account.getUserList);
 };

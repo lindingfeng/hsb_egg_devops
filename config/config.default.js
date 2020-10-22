@@ -20,7 +20,7 @@ module.exports = appInfo => {
 
   config.mongoose = {
     client: {
-      url: 'mongodb://129.204.136.155:27017',
+      url: 'mongodb://127.0.0.1:27017',
       options: {
         user: 'jk_devops_admin', // 数据库用户名
         pass: 'wsjj1994',     // 数据库密码

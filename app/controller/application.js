@@ -6,7 +6,7 @@ const Controller = require('egg').Controller;
 class ApplicationController extends Controller {
   async getAppList () {
     const { ctx } = this;
-    const { app_type, app_key } = ctx.query
+    const { app_type, app_key } = Object.assign({}, ctx.query, ctx.request.body)
     try {
       const ret = await ctx.service.application.getAppList({ app_type, app_key })
       ctx.body = returnRepData({ data: { list: ret } })

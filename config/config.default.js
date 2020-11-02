@@ -82,14 +82,3 @@ module.exports = appInfo => {
     ...userConfig
   };
 };
-
-// exports.mongoose = {
-//   clients: {
-//     url: 'mongodb://127.0.0.1:27017',
-//     options: {
-//       user: 'account_user', // 数据库用户名
-//       pass: 'wsjj1994',     // 数据库密码
-//       dbName: 'account'    // 数据库名
-//     }
-//   }
-// };

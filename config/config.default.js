@@ -2,6 +2,7 @@
 
 'use strict';
 
+const userConf = require('./userConf');
 /**
  * @param {Egg.EggAppInfo} appInfo app info
  */
@@ -10,7 +11,15 @@ module.exports = appInfo => {
    * built-in config
    * @type {Egg.EggAppConfig}
    **/
-  const config = exports = {};
+  const config = exports = {
+    /*
+     * @desc: 配置自定义中间件verifyToken的options
+    */
+    verifyToken: {
+      // 关闭检验token接口列表
+      closeCheck: []
+    }
+  };
 
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1603176786301_7209';
@@ -51,7 +60,7 @@ module.exports = appInfo => {
     * @npm: https://www.npmjs.com/package/parameter
     * @gitHub: https://github.com/eggjs/egg-validate
   */
- config.validate = {
+  config.validate = {
     // 重要：可将入参尽可能转为type指定的类型
     convert: true,
     /*
@@ -63,7 +72,9 @@ module.exports = appInfo => {
 
   // add your user config here
   const userConfig = {
-    // ...
+    conf: {
+      ...userConf
+    }
   };
 
   return {

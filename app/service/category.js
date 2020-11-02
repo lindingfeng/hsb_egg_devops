@@ -2,14 +2,14 @@
 
 const Service = require('egg').Service
 
-class OrderService extends Service {
+class CategoryService extends Service {
   /*
    * @desc: 获取信息列表
   */
-  async getInfoList() {
+  async getCategory() {
     const { ctx } = this;
     return new Promise((resolve, reject) => {
-      ctx.model.Account.find({}, { _id: 0 }, (err, res) => {
+      ctx.model.Category.find({}, (err, res) => {
         if (err) {
           return reject(err)
         }
@@ -19,4 +19,4 @@ class OrderService extends Service {
   }
 }
 
-module.exports = OrderService
+module.exports = CategoryService

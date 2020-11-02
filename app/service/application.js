@@ -7,11 +7,10 @@ const Service = require('egg').Service
 class ApplicationService extends Service {
   async getAppList({ app_type, app_key }) {
     const { ctx } = this
-    const filterParams = {
-      uid: ctx.query.uid
-    }
+    const filterParams = {}
     app_type && (filterParams.app_type = app_type)
     app_key && (filterParams.app_key = app_key)
+    !app_key && (filterParams.uid = ctx.query.uid)
     return new Promise((resolve, reject) => {
       ctx.model.Application.find(filterParams, { __v: 0 }, (err, res) => {
         if (err) {

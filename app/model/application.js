@@ -24,7 +24,8 @@ module.exports = app => {
     create_time: String,
     dingTalk_url: String,
     third_key: String,
-    third_desc: String
+    third_desc: String,
+    build_command: String
   });
   return mongoose.model('application', ApplicationSchema, 'application_list');
 }

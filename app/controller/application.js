@@ -11,7 +11,7 @@ class ApplicationController extends Controller {
       const ret = await ctx.service.application.getAppList({ app_type, app_key })
       ctx.body = returnRepData({ data: { list: ret } })
     } catch (error) {
-      ctx.body = ctx.body = returnRepData({ code: 1, msg: error.message || '请求失败' })
+      ctx.body = returnRepData({ code: 1, msg: error.message || '请求失败' })
     }
   }
   async createApp () {
